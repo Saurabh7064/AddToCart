@@ -4,8 +4,14 @@
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
 	
-	<display-name>Spring3 MVC Application</display-name>
-
+	<display-name>Add To Cart Application</display-name>
+<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring/hibernate-context.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
 	<servlet>
 		<servlet-name>spring-web</servlet-name>
 		<servlet-class>

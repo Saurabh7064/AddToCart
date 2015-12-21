@@ -27,7 +27,7 @@
 
 
   <!-- Static navbar -->
-      <div class="navbar navbar-default" role="navigation">
+      <div class="navbar navbar-inverse" role="navigation">
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -41,8 +41,8 @@
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href='<spring:url value="/" />'>Home</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
+              <li><a href="form"><span class="glyphicon glyphicon-th"></span>Form</a></li>
+                <li><a href="list"><span class="glyphicon glyphicon-user"></span> List</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -53,9 +53,9 @@
 
 	<br>
 	<br>
-	<center>
+	 
 		<tiles:insertAttribute name="footer" />
-	</center>
+	 
 
 </div>
 

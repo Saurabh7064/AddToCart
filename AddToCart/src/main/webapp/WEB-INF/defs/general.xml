@@ -13,7 +13,21 @@
      
   </definition>
   
-  
+  <definition name="HibernateForm" extends="common">
+    <put-attribute name="title" value="Hibernate | Registration Form" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/HibernateForm.jsp" />
+     
+  </definition>
+  <definition name="list" extends="common">
+    <put-attribute name="title" value="LIST" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/list.jsp" />
+     
+  </definition>
+  <definition name="hib" extends="common">
+    <put-attribute name="title" value="Hib" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/hib.jsp" />
+     
+  </definition>
 </tiles-definitions>
 
 
