@@ -3,34 +3,51 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-  <definition name="common" template="/WEB-INF/layout/classic.jsp">
-    <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
-  </definition>
-  
-  <definition name="index" extends="common">
-    <put-attribute name="title" value="Add To Cart" />
-    <put-attribute name="body" value="/WEB-INF/views/jsp/index.jsp" />
-     
-  </definition>
-  
-  <definition name="HibernateForm" extends="common">
-    <put-attribute name="title" value="Hibernate | Registration Form" />
-    <put-attribute name="body" value="/WEB-INF/views/jsp/HibernateForm.jsp" />
-     
-  </definition>
-  <definition name="list" extends="common">
-    <put-attribute name="title" value="LIST" />
-    <put-attribute name="body" value="/WEB-INF/views/jsp/list.jsp" />
-     
-  </definition>
-  <definition name="hib" extends="common">
-    <put-attribute name="title" value="Hib" />
-    <put-attribute name="body" value="/WEB-INF/views/jsp/hib.jsp" />
-     
-  </definition>
+	<definition name="common" template="/WEB-INF/layout/classic.jsp">
+		<put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
+	</definition>
+
+	<definition name="index" extends="common">
+		<put-attribute name="title" value="Add To Cart" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/index.jsp" />
+		<put-attribute name="current" value="index" />
+
+
+	</definition>
+
+	<definition name="HibernateForm" extends="common">
+		<put-attribute name="title" value="Hibernate | Registration Form" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/HibernateForm.jsp" />
+
+	</definition>
+	<definition name="list" extends="common">
+		<put-attribute name="title" value="LIST" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/list.jsp" />
+
+	</definition>
+	<definition name="hib" extends="common">
+		<put-attribute name="title" value="Hib" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/hib.jsp" />
+	</definition>
+
+    <definition name="UserRegistration" extends="common">
+		<put-attribute name="title" value="Registration form" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/UserRegistration.jsp" />
+		<put-attribute name="current" value="UserRegistration" />
+	</definition>
+ <definition name="UsersList" extends="common">
+		<put-attribute name="title" value="Users list" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/UsersList.jsp" />
+		<put-attribute name="current" value="UsersList" />
+	</definition>
+	<definition name="login" extends="common">
+		<put-attribute name="title" value="Login" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/login.jsp" />
+		<put-attribute name="current" value="login" />
+	</definition>
 </tiles-definitions>
 
 
 
-<!-- this file is copied from https://tiles.apache.org/framework/tutorial/basic/pages.html
- -->
+<!-- this file is copied from https://tiles.apache.org/framework/tutorial/basic/pages.html -->

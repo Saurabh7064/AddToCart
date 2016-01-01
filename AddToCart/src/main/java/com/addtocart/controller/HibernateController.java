@@ -27,7 +27,6 @@ public class HibernateController {
 	public ModelAndView saveHibernateDTO(@ModelAttribute HibernateDTO hibernateDTO){
 		
 		hibernateService.saveHibernateDTO(hibernateDTO);
-		
 		System.out.println("saved");
 		return new ModelAndView("redirect:list");
 

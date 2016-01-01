@@ -7,9 +7,7 @@
 
 		<div style="color: teal; font-size: 30px">Hibernate | Registration Form</div>
 
-
-
- 		<form:form id="registerForm" modelAttribute="hibernateDTO" method="post"
+    	<form:form id="registerForm" modelAttribute="hibernateDTO" method="post"
 			action="register">
 			<table width="400px" height="150px">
 				<tr>
