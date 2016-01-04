@@ -21,6 +21,8 @@
 		expression="org.springframework.stereotype.Controller" />
 		</context:component-scan>  
  		
+ 		<!-- Here exclude because we already have this scan in another xml if we include it will get instantiated twice -->
+ 		
 			   <!--  <context:component-scan base-package="com.addtocart" /> -->
 		
 

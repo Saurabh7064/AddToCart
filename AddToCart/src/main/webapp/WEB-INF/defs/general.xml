@@ -46,6 +46,12 @@
 		<put-attribute name="body" value="/WEB-INF/views/jsp/login.jsp" />
 		<put-attribute name="current" value="login" />
 	</definition>
+	<definition name="products" extends="common">
+		<put-attribute name="title" value="Product List" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/products.jsp" />
+		<put-attribute name="current" value="products" />
+	</definition>
+	
 </tiles-definitions>
 
 

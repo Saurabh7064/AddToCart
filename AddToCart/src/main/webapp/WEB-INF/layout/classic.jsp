@@ -59,6 +59,8 @@
 							<li class="${current == 'UsersList' ? 'active' : ''}"><a
 								href="listusers"><span class="glyphicon glyphicon-user"></span>Users
 									List</a></li>
+									<li class="${current == 'products' ? 'active' : ''}"><a
+								href="productlist"><span class="glyphicon glyphicon-user"></span>products</a></li>
 							<li><a href="<spring:url value="logout" />">Logout</a></li>
 						</security:authorize>
 					</ul>

@@ -6,7 +6,7 @@ import com.addtocart.dto.User;
 
 public interface UserDao {
 
-    public void saveUser(User user);
+     public void saveUser(User user);
      public List<User> listUser();
 	
 	

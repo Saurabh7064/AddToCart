@@ -5,9 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="cart")
-public class HibernateDTO {
+ 
+ public class HibernateDTO {
 
 	
 	@Id
