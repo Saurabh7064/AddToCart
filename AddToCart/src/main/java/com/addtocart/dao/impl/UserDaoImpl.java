@@ -6,6 +6,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -30,6 +31,13 @@ public class UserDaoImpl implements UserDao {
 		return c.list();
 	}
 	
+	@Override
+	public User findUserByName(String name) {
+		Criteria c = getSession().createCriteria(User.class);
+		c.add(Restrictions.eq("name", name));
+		return (User) c.uniqueResult();
+	}
+	
 	private Session getSession() {
 		Session sess = getSessionFactory().getCurrentSession();
 		if (sess == null) {
@@ -41,5 +49,7 @@ public class UserDaoImpl implements UserDao {
 	private SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}
+
+
 	
 }

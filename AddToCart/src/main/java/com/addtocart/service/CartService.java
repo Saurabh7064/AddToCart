@@ -1,13 +1,10 @@
-package com.addtocart.dao;
+package com.addtocart.service;
 
 import com.addtocart.dto.Cart;
 import com.addtocart.dto.User;
 
-public interface CartDao {
-
-
-	public Integer  saveCart(Cart cart) ;
+public interface CartService {
+    public Integer saveCart(Cart cart)  ;
 	
 	public Cart isCartExisting(int userID);
-	
 }

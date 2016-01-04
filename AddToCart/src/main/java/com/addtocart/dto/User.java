@@ -26,6 +26,10 @@ public class User {
 
 	private String password;
 	
+	public User(Integer id) {
+		super();
+		this.id = id;
+	}
 	private int enabled;
 	
 	public User() {

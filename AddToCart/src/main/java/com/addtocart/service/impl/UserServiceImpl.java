@@ -27,6 +27,11 @@ public class UserServiceImpl implements UserService   {
 		return userDao.listUser(); 
 	}
 
+	@Transactional(readOnly = true)
+	public User findUserByName(String name) {
+		return userDao.findUserByName(name);
+	}
+
 	 
 
 }
