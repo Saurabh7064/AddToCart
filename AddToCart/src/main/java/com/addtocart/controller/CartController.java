@@ -1,6 +1,7 @@
 package com.addtocart.controller;
 
 import java.security.Principal;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.addtocart.dto.Cart;
+import com.addtocart.dto.OrderDetails;
 import com.addtocart.dto.User;
 import com.addtocart.service.CartService;
 import com.addtocart.service.UserService;
@@ -39,5 +41,23 @@ public class CartController {
 		}
 		return "redirect:/productlist";
 
+	}
+	
+	@RequestMapping("/displaycart")
+	public String displayCart(Map<String, Object> map, Principal principal) {
+		String name = null;
+		if (principal != null) {
+			name = principal.getName();
+		}
+		User user = userService.findUserByName(name);
+		
+		Cart isCartExisting = cartService.isCartExisting(user.getId());
+ 		List<OrderDetails> orderDetails=isCartExisting.getOrderDetails();
+		map.put("orderDetails", orderDetails);
+         	 for(OrderDetails o:orderDetails)
+         	 {
+         		 System.out.println(o.getCart());
+         	 }
+		return "redirect:/productlist";
 	}
 }
