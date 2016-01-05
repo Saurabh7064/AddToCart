@@ -50,10 +50,12 @@ public class CartServiceImpl implements CartService {
 	@Override
 	@Transactional
 	public int saveCart(User user, int cartid, int productid) {
+		
 		Cart cart = cartDao.getCart(cartid);
         //is order details existing with given product id?
-		OrderDetails isItemExisting = orderDetailsService.isItemExisting(productid);
+		OrderDetails isItemExisting = orderDetailsService.isItemExisting(cart.getId());
 		if(isItemExisting!=null){
+			System.out.println("Entered if");
 			//add in existing
 			isItemExisting.setQuantity(isItemExisting.getQuantity()+1);
 
@@ -66,7 +68,7 @@ public class CartServiceImpl implements CartService {
 			System.out.println(result);
 			return result;
 		}else{
-			//new 
+			System.out.println("Entered else");
 			Product product = new Product(productid);
 
 			OrderDetails orderDetails1 = new OrderDetails();

@@ -56,12 +56,13 @@ public class CartController {
 		
 		Cart isCartExisting = cartService.isCartExisting(user.getId());
 		
-		List<OrderDetails> od = orderService.getOrderDetailsByCartID(isCartExisting.getId());
+		List<OrderDetails> orderDetails = orderService.getOrderDetailsByCartID(isCartExisting.getId());
 		
-		for(OrderDetails od2:od){
+		/*for(OrderDetails od2:od){
 		System.out.println(od2.getProducts());	
-		}
+		}*/
+		map.put("orderDetails", orderDetails);
 		
-		return "redirect:/productlist";
+		return "CartItems";
 	}
 }
