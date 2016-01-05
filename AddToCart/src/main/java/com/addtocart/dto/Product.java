@@ -46,6 +46,12 @@ public class Product {
 		this.id = id;
 	}
 
+	public Product(int id, int price) {
+		super();
+		this.id = id;
+		this.price = price;
+	}
+
 	public int getId() {
 		return id;
 	}
