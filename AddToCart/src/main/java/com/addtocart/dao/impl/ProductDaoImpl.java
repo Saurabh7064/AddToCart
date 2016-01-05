@@ -6,10 +6,13 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.addtocart.dao.ProductDao;
+import com.addtocart.dto.Cart;
+import com.addtocart.dto.OrderDetails;
 import com.addtocart.dto.Product;
 @Repository
 public   class ProductDaoImpl implements ProductDao{
@@ -46,6 +49,7 @@ public   class ProductDaoImpl implements ProductDao{
 			
 		}
 
+		 
 
 		
 }

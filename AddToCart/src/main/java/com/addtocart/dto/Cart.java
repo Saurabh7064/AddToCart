@@ -34,6 +34,16 @@ public class Cart {
 	private List<Transactions> transactions ;
     
 
+	 
+	public Cart() {
+		super();
+	}
+
+	public Cart(int id) {
+		super();
+		this.id = id;
+	}
+
 	public int getId() {
 		return id;
 	}

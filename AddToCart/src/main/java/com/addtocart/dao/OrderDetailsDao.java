@@ -1,5 +1,7 @@
 package com.addtocart.dao;
 
+import java.util.List;
+
 import com.addtocart.dto.OrderDetails;
 
 public interface OrderDetailsDao {
@@ -8,4 +10,5 @@ public interface OrderDetailsDao {
 	
 	public OrderDetails isItemExisting(int productid);
 	
+	public List<OrderDetails> getOrderDetailsByCartID(int cartID);
 }

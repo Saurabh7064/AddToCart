@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.addtocart.dao.ProductDao;
+import com.addtocart.dto.OrderDetails;
 import com.addtocart.dto.Product;
 import com.addtocart.service.ProductService;
 @Service
@@ -30,4 +31,6 @@ public   class ProductServiceImpl implements ProductService {
 		return productDao.getProduct(id);
 
 	}
+
+	 
 }

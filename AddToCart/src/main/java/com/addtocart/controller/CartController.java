@@ -13,6 +13,7 @@ import com.addtocart.dto.Cart;
 import com.addtocart.dto.OrderDetails;
 import com.addtocart.dto.User;
 import com.addtocart.service.CartService;
+import com.addtocart.service.OrderDetailsService;
 import com.addtocart.service.UserService;
 
 @Controller
@@ -22,6 +23,8 @@ public class CartController {
 	UserService userService;
 	@Autowired
 	CartService cartService;
+	@Autowired
+	OrderDetailsService orderService;
 
 	@RequestMapping("/addtocart/{productid}")
 	public String addToCart(Map<String, Object> map, Principal principal,
@@ -52,12 +55,13 @@ public class CartController {
 		User user = userService.findUserByName(name);
 		
 		Cart isCartExisting = cartService.isCartExisting(user.getId());
- 		List<OrderDetails> orderDetails=isCartExisting.getOrderDetails();
-		map.put("orderDetails", orderDetails);
-         	 for(OrderDetails o:orderDetails)
-         	 {
-         		 System.out.println(o.getCart());
-         	 }
+		
+		List<OrderDetails> od = orderService.getOrderDetailsByCartID(isCartExisting.getId());
+		
+		for(OrderDetails od2:od){
+		System.out.println(od2.getProducts());	
+		}
+		
 		return "redirect:/productlist";
 	}
 }

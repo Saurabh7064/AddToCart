@@ -2,6 +2,7 @@ package com.addtocart.dto;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,7 +19,7 @@ public class Role {
 
 	private String name;
 
-	@ManyToMany(mappedBy="roles")
+	@ManyToMany(mappedBy="roles",cascade=CascadeType.ALL)
 	private List<User> users;
 
 	public List<User> getUsers() {

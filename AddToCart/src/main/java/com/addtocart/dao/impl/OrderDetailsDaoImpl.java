@@ -1,8 +1,11 @@
 package com.addtocart.dao.impl;
 
+import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -39,5 +42,15 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
 
 	private SessionFactory getSessionFactory() {
 		return sessionFactory;
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<OrderDetails> getOrderDetailsByCartID(int cartID) {
+	 
+				Criteria c = getSession().createCriteria(OrderDetails.class);		
+				c.add(Restrictions.eq("cart", new Cart(cartID))) ;
+				return c.list();
+			 
 	}
 }

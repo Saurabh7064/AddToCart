@@ -21,15 +21,15 @@ public class OrderDetails {
     @Column(name = "product_quantity")	
 	private int quantity;
 	
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false )
 	@JoinColumn(name = "product_id")
 	private Product products;
  
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false )
 	@JoinColumn(name = "user_id")
 	User user;
 	
-	@ManyToOne(optional = false, cascade = CascadeType.ALL)
+	@ManyToOne(optional = false )
 	@JoinColumn(name = "cart_id")
 	Cart cart;
 

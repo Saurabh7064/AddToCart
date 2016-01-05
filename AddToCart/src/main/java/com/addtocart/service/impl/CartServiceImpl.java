@@ -34,6 +34,7 @@ public class CartServiceImpl implements CartService {
 		OrderDetails orderDetails1 = new OrderDetails();
 		orderDetails1.setUser(cart.getUser());
 		orderDetails1.setProducts(product);
+		orderDetails1.setQuantity(1);
 		orderDetails1.setCart(cart);
 
 		List<OrderDetails> listOfOrders = new ArrayList<OrderDetails>();
@@ -66,11 +67,13 @@ public class CartServiceImpl implements CartService {
 			return result;
 		}else{
 			//new 
-			Product product = new Product(productid,1);
+			Product product = new Product(productid);
 
 			OrderDetails orderDetails1 = new OrderDetails();
 			orderDetails1.setUser(cart.getUser());
 			orderDetails1.setProducts(product);
+			orderDetails1.setQuantity(1);
+
 			orderDetails1.setCart(cart);
 
 			List<OrderDetails> listOfOrders = new ArrayList<OrderDetails>();
