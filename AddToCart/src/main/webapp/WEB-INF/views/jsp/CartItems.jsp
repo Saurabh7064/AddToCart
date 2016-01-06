@@ -12,7 +12,8 @@
 								class="fa fa-plus"></i> <sec:authentication property="name" /></a> 
 								<a class="btn btn-primary" href="<c:url value="/role"/>"> <i
 								class="fa fa-list-ol"></i> <sec:authentication property="authorities" /></a>
-            				 
+            				 <a class="btn btn-primary" href="<c:url value="/transaction/${cartid}"/>"> <i
+								class="fa fa-list-ol"></i> CheckOut</a>
 							</div>								
 						</c:if>							
 					</div>
@@ -44,4 +45,4 @@
 											</tr>
 							</tbody>
 						</table>
-					</div>
+					</div> 

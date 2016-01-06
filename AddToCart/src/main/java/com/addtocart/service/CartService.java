@@ -12,10 +12,14 @@ public interface CartService {
 	public Integer saveCart(User user,int productid);
 	
 	public Cart isCartExisting(int userID);
-
+	
+	public Cart getCart(int cartid);
+	
 	public int saveCart(User user, int id, int productid);
 	
 	public int getCartQuantity(List<OrderDetails> orderDetails);
 	
 	public int getCartAmount(List<OrderDetails> orderDetails);
+	
+	
 }

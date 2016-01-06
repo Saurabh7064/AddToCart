@@ -10,6 +10,6 @@ public interface CartDao {
 	 
 	public Cart isCartExisting(int userID);
 	
-	public Cart getCart(int id);
+	public Cart getCart(int cartid);
 	
 }

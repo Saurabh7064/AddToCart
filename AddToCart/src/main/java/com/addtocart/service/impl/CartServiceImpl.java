@@ -117,4 +117,10 @@ public class CartServiceImpl implements CartService {
  		return totalAmount;
 	}
 
+	@Override
+	@Transactional
+	public Cart getCart(int id) {
+ 		return cartDao.getCart(id);
+	}
+
 }
