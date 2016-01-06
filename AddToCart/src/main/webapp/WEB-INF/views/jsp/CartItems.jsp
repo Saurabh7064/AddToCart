@@ -3,6 +3,9 @@
 
 <%@ include file="taglib.jsp" %>
  	<div class="row" data-ng-app="myApp">
+						 
+						<h2><c:out value="${noitems}" /></h2>
+											 						
 						
 							<c:if test="${orderDetails != null }">
 							
@@ -12,8 +15,8 @@
 								class="fa fa-plus"></i> <sec:authentication property="name" /></a> 
 								<a class="btn btn-primary" href="<c:url value="/role"/>"> <i
 								class="fa fa-list-ol"></i> <sec:authentication property="authorities" /></a>
-            				 <a class="btn btn-primary" href="<c:url value="/transaction/${cartid}"/>"> <i
-								class="fa fa-list-ol"></i> CheckOut</a>
+            				 <a class="btn btn-primary" href="<c:url value="/transaction/${cartid}/${totalamount}"/>"> <i
+								class="fa fa-list-ol"></i> CheckOut.</a>
 							</div>								
 						</c:if>							
 					</div>

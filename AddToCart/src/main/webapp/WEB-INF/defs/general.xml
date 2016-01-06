@@ -56,6 +56,11 @@
 		<put-attribute name="body" value="/WEB-INF/views/jsp/CartItems.jsp" />
 		<put-attribute name="current" value="CartItems" />
 	</definition>
+	<definition name="checkout" extends="common">
+		<put-attribute name="title" value="checkout details" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/Checkout.jsp" />
+		<put-attribute name="current" value="checkout" />
+	</definition>
 	 
 </tiles-definitions>
 

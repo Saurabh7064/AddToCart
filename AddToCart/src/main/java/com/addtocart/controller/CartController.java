@@ -55,13 +55,20 @@ public class CartController {
 		User user = userService.findUserByName(name);
 		
 		Cart isCartExisting = cartService.isCartExisting(user.getId());
-		
+		if(isCartExisting!=null)
+		{
 		List<OrderDetails> orderDetails = orderService.getOrderDetailsByCartID(isCartExisting.getId());
 		
 		map.put("orderDetails", orderDetails);
 		map.put("quantity", cartService.getCartQuantity(orderDetails));
 		map.put("totalamount", cartService.getCartAmount(orderDetails));
 		map.put("cartid", isCartExisting.getId());
+
+		}else{
+			map.put("noitems", "No items in cart");
+
+			
+		}
 		return "CartItems";
 	}
 }

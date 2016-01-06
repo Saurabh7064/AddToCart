@@ -7,9 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.addtocart.dto.Cart;
-import com.addtocart.service.CartService;
 import com.addtocart.service.TransactionService;
 
 @Controller
@@ -19,12 +18,18 @@ public class TransactionController {
 	@Autowired
 	TransactionService transactionService;
 	
-	@RequestMapping("/transaction/{cartid}")
+	@RequestMapping(value="/transaction/{cartid}/{totalamount}",method=RequestMethod.GET)
 	public String finishTransaction(Map<String, Object> map, Principal principal,
-			@PathVariable int cartid) {
+			@PathVariable int cartid,@PathVariable int totalamount) {
 		
 		int result = transactionService.saveTransation(cartid);
-		
-		return "CartItems";
+		 map.put("totalamount", totalamount);
+            
+		return "redirect:/checkout";
+	}
+	
+	@RequestMapping("/checkout")
+	public String checkout() {
+		return "checkout";
 	}
 }
