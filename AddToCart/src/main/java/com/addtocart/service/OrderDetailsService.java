@@ -11,4 +11,6 @@ public interface OrderDetailsService {
 	public OrderDetails isItemExisting(int cartid,int productid);
 	
 	public List<OrderDetails> getOrderDetailsByCartID(int cartID);
+	
+
 }

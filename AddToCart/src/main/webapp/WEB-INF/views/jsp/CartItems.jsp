@@ -6,6 +6,7 @@
 						
 							<c:if test="${orderDetails != null }">
 							
+
 							<div class="pull-left" data-ng-controller="myController">
         						<a class="btn btn-success" href="<c:url value="/userdetail"/>"> <i
 								class="fa fa-plus"></i> <sec:authentication property="name" /></a> 
@@ -35,6 +36,12 @@
 										<td><c:out value="${orderDetails.quantity}" /></td>
 									</tr>
 								</c:forEach>
+								<tr>
+								<td>Details</td>
+								<td>Total amount : <c:out value="${totalamount}" /></td>
+								<td>Total quantity : <c:out value="${quantity}" /></td>
+										
+											</tr>
 							</tbody>
 						</table>
 					</div>

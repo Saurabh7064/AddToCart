@@ -97,4 +97,24 @@ public class CartServiceImpl implements CartService {
 		return cartDao.isCartExisting(userID);
 	}
 
+	@Override
+	public int getCartQuantity(List<OrderDetails> orderDetails) {
+		int totalQuantity=0;
+ 		for(OrderDetails  Quantity:orderDetails){
+			totalQuantity+=Quantity.getQuantity();
+ 		}
+		System.out.println("totalQuantity "+totalQuantity);
+		return totalQuantity;
+ 	}
+
+	@Override
+	public int getCartAmount(List<OrderDetails> orderDetails) {
+ 		int totalAmount=0;
+		for(OrderDetails  Price:orderDetails){
+ 			totalAmount+=Price.getQuantity()*Price.getProducts().getPrice();
+		}
+ 		System.out.println("totalAmount "+totalAmount);
+ 		return totalAmount;
+	}
+
 }

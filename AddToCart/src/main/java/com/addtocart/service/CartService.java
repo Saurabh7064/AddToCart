@@ -1,6 +1,9 @@
 package com.addtocart.service;
 
+import java.util.List;
+
 import com.addtocart.dto.Cart;
+import com.addtocart.dto.OrderDetails;
 import com.addtocart.dto.User;
 
 public interface CartService {
@@ -11,4 +14,8 @@ public interface CartService {
 	public Cart isCartExisting(int userID);
 
 	public int saveCart(User user, int id, int productid);
+	
+	public int getCartQuantity(List<OrderDetails> orderDetails);
+	
+	public int getCartAmount(List<OrderDetails> orderDetails);
 }

@@ -42,7 +42,7 @@ public class CartController {
 		} else {
 			int result = cartService.saveCart(user, productid);
 		}
-		return "redirect:/productlist";
+		return "redirect:/productlist?success=true";
 
 	}
 	
@@ -58,11 +58,9 @@ public class CartController {
 		
 		List<OrderDetails> orderDetails = orderService.getOrderDetailsByCartID(isCartExisting.getId());
 		
-		/*for(OrderDetails od2:od){
-		System.out.println(od2.getProducts());	
-		}*/
 		map.put("orderDetails", orderDetails);
-		
+		map.put("quantity", cartService.getCartQuantity(orderDetails));
+		map.put("totalamount", cartService.getCartAmount(orderDetails));
 		return "CartItems";
 	}
 }

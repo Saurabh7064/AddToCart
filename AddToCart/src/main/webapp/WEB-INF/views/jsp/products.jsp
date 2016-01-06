@@ -5,7 +5,11 @@
  	<div class="row" data-ng-app="myApp">
 						
 							<c:if test="${username != null }">
-							
+						<c:if test="${param.success eq true}">
+						<script>
+	                    alert("item added to cart");
+	                    </script>
+	                 </c:if>	
 							<div class="pull-left" data-ng-controller="myController">
         						<a class="btn btn-success" href="<c:url value="/userdetail"/>"> <i
 								class="fa fa-plus"></i> <sec:authentication property="name" /></a> 
