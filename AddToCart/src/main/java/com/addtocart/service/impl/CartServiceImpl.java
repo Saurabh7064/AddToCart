@@ -25,6 +25,7 @@ public class CartServiceImpl implements CartService {
 	@Override
 	@Transactional
 	public Integer saveCart(User user, int productid) {
+		System.out.println("Entered new cart");
 		Product product = new Product(productid);
 
 		Cart cart = new Cart();
@@ -53,7 +54,7 @@ public class CartServiceImpl implements CartService {
 		
 		Cart cart = cartDao.getCart(cartid);
         //is order details existing with given product id?
-		OrderDetails isItemExisting = orderDetailsService.isItemExisting(cart.getId());
+		OrderDetails isItemExisting = orderDetailsService.isItemExisting(cartid,productid);
 		if(isItemExisting!=null){
 			System.out.println("Entered if");
 			//add in existing

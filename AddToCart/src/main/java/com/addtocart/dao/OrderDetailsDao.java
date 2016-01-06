@@ -8,7 +8,7 @@ public interface OrderDetailsDao {
 
 	public OrderDetails saveOrderDetails();
 	
-	public OrderDetails isItemExisting(int productid);
+	public OrderDetails isItemExisting(int cartid,int productid);
 	
 	public List<OrderDetails> getOrderDetailsByCartID(int cartID);
 }

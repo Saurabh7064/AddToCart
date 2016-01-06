@@ -25,10 +25,11 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
 	}
 
 	@Override
-	public OrderDetails isItemExisting(int productid) {
+	public OrderDetails isItemExisting(int cartid,int productid) {
 		// TODO Auto-generated method stub
 		Criteria c = getSession().createCriteria(OrderDetails.class);
-		c.add(Restrictions.eq("products", new Product(productid))) ;
+		c.add(Restrictions.eq("products", new Product(productid)))
+		.add(Restrictions.eq("cart", new Cart(cartid)));
 		return (OrderDetails) c.uniqueResult();
 	 
 	}

@@ -27,9 +27,9 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
 
 	@Override
 	@Transactional
-	public OrderDetails isItemExisting(int productid) {
+	public OrderDetails isItemExisting(int cartid,int productid) {
 		
-		return orderDetailsDao.isItemExisting(productid);
+		return orderDetailsDao.isItemExisting(  cartid,productid);
 		
 	}
 /*	User user = findOne(id);
