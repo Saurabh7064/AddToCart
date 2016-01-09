@@ -13,8 +13,8 @@ public class TransactionDaoImpl implements TransactionDao {
 	 private SessionFactory sessionFactory;
 	 
 	 
-	public int saveTransation(Transactions transaction) {
-	return	(int) getSession().save(transaction);
+	public Integer saveTransation(Transactions transaction) {
+	return	(Integer) getSession().save(transaction);
 	}
 	private Session getSession() {
 		Session sess = getSessionFactory().getCurrentSession();

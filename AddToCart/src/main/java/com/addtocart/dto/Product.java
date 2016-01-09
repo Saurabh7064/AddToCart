@@ -24,6 +24,31 @@ public class Product {
 
 	@Column(name = "product_price")
 	private int price;
+	
+	@Column(name="product_stock")
+	private int stock;
+	
+	@Column(name="product_description")
+	private String description;
+
+	public int getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+
+	
+	
+	
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 	public int getPrice() {
 		return price;
@@ -78,7 +103,8 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", price=" + price + "]";
+		return "Product [id=" + id + ", name=" + name + ", price=" + price + ", stock=" + stock + ", description="
+				+ description + ", orderDetails=" + orderDetails + "]";
 	}
 
  

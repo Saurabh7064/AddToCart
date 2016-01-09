@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.addtocart.service.ProductService;
@@ -24,6 +25,15 @@ public class ProductController {
 			map.put("username", name);
 			}
 		return "products";
+	}
+	
+	@RequestMapping("/product/{id}")
+	public String product(Map<String,Object> map,@PathVariable("id") int productID){
+		
+		
+		map.put("product",productService.getProduct(productID));
+		
+		return "product";
 	}
 	
 }

@@ -13,7 +13,7 @@
         
         <mvc:annotation-driven   />
 	    <context:component-scan base-package="com.addtocart.controller" />
-	        <mvc:resources mapping="/web-resources/**" location="/resources/" />
+	<mvc:resources  location="/resources/"  mapping="/resource/**"/>
 	
  	 	 
 	<!-- <bean

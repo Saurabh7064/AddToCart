@@ -2,7 +2,7 @@ package com.addtocart.service;
 
 public interface TransactionService {
 
-	public int saveTransation(int cartid);
+	public Integer saveTransation(int cartid);
 	
 }
 

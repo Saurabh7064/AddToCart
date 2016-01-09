@@ -19,30 +19,33 @@
 							</div>								
 						</c:if>							
 					</div>
-<div class="table-responsive row">
-						<table class="table table-striped table-bordered table-condensed text-center">
-							<thead>
-								<tr class="success">
-									<th width="30%">Products</th>
-									<th width="30%">Price</th>
-									<th width="30%">Add To Cart</th>
-									
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach items="${productlist}" var="product" varStatus="loopCounter">
-									<tr>
-										<td><c:out value="${product.name}" /></td>
-										 
-										<td><c:out value="${product.price}" /></td>
-										
-										<td><nobr>
-												<a class="btn btn-primary"	href="<c:url value="/addtocart/${product.id}"/>"> 
-													<i class="fa fa-pencil"></i> Add To Cart
-												</a> 
-										</nobr></td>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
+ 
+					<section class="container">
+		<div class="row">
+			<c:forEach items="${productlist}" var="product">
+				<div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
+					<div class="thumbnail">
+					<img src="<c:url value="/resource/productimages/${product.id}.png"></c:url>" alt="image"  style = "width:100%"/>
+						<div class="caption">
+							<h3>${product.name}</h3>
+							<p>${product.description}</p>
+							<p>Rs. ${product.price}</p>
+							<p>Available ${product.stock} units in stock</p>
+							<p>
+							 
+								<a
+									href=" <spring:url value="/product/${product.id}" /> "
+									class="btn btn-primary"> <span
+									class="glyphicon-info-sign glyphicon" /></span>Details
+								</a>
+								
+									<a href=" <spring:url value="/addtocart/${product.id}" /> " class="btn btn-warning btn-large"  > 
+<span class="glyphicon-shopping-cart glyphicon"></span>Add to cart</a>
+							</p>
+
+						</div>
 					</div>
+				</div>
+			</c:forEach>
+		</div>
+	</section>

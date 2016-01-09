@@ -18,7 +18,7 @@ public class TransactionServiceImpl implements TransactionService{
 	TransactionDao transactionDao;
  	@Override
 	@Transactional
-	public int saveTransation(int cartid) {
+	public Integer saveTransation(int cartid) {
 		Cart cart = cartService.getCart(cartid);
 		cart.setStatus(1);
 		Transactions transaction = new Transactions();

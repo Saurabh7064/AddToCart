@@ -25,11 +25,11 @@ public class TransactionController {
 		int result = transactionService.saveTransation(cartid);
 		 map.put("totalamount", totalamount);
             
-		return "redirect:/checkout";
-	}
-	
-	@RequestMapping("/checkout")
-	public String checkout() {
 		return "checkout";
 	}
+	
+	/*@RequestMapping("/checkout")
+	public String checkout() {
+		return "checkout";
+	}*/
 }
