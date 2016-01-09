@@ -31,6 +31,12 @@ public   class ProductDaoImpl implements ProductDao{
  			return (Product) getSession().get(Product.class, id);
 
 		}
+ 	   
+ 	  public void saveProduct(Product product) {
+			getSession().persist(product);
+			
+		}
+
 	 private Session getSession() {
 			Session sess = getSessionFactory().getCurrentSession();
 			if (sess == null) {
@@ -44,11 +50,7 @@ public   class ProductDaoImpl implements ProductDao{
 		}
 
 
-		public void saveProduct(Product product) {
-			// TODO Auto-generated method stub
-			
-		}
-
+		
 		 
 
 		

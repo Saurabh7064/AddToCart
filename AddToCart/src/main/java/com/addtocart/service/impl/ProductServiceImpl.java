@@ -10,27 +10,28 @@ import com.addtocart.dao.ProductDao;
 import com.addtocart.dto.OrderDetails;
 import com.addtocart.dto.Product;
 import com.addtocart.service.ProductService;
+
 @Service
-public   class ProductServiceImpl implements ProductService {
+public class ProductServiceImpl implements ProductService {
 
 	@Autowired
-    private ProductDao productDao;
-	
+	private ProductDao productDao;
+
 	@Transactional(readOnly = true)
-	public List<Product>  listProduct() {
-		return productDao.listProduct(); 
+	public List<Product> listProduct() {
+		return productDao.listProduct();
 	}
 
+	@Transactional
 	public void saveProduct(Product product) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Transactional(readOnly = true)
+		productDao.saveProduct(product);
 
-	public Product getProduct(int id) {				
+	}
+
+	@Transactional(readOnly = true)
+	public Product getProduct(int id) {
 		return productDao.getProduct(id);
 
 	}
 
-	 
 }

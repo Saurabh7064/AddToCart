@@ -55,11 +55,15 @@
 							<li class="${current == 'login' ? 'active' : ''}"><a
 								href="login"><span class="glyphicon glyphicon-th"></span>Login</a></li>
 						</security:authorize>
-						<security:authorize access="isAuthenticated()">
+						  <security:authorize access="hasRole('ROLE_ADMIN')">
 							<li class="${current == 'UsersList' ? 'active' : ''}"><a
 								href="listusers"><span class="glyphicon glyphicon-user"></span>Users
 									List</a></li>
+							<li class="${current == 'addProduct' ? 'active' : ''}"><a
+								href="addproduct"><span class="glyphicon glyphicon-user"></span>addProduct</a></li>
 									
+									  </security:authorize>
+								<security:authorize access="isAuthenticated()">	
 									<li class="${current == 'CartItems' ? 'active' : ''}"><a
 								href="displaycart"><span class="glyphicon glyphicon-user"></span>Cart items</a></li>
 									

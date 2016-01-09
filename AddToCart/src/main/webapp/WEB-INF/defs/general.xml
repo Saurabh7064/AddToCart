@@ -67,7 +67,11 @@
 		<put-attribute name="current" value="checkout" />
 	</definition>
 	
-	 
+	 <definition name="addProduct" extends="common">
+		<put-attribute name="title" value="addProduct" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/addproduct.jsp" />
+		<put-attribute name="current" value="addProduct" />
+	</definition>
 </tiles-definitions>
 
 
