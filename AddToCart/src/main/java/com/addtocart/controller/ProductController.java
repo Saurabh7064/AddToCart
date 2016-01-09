@@ -1,7 +1,10 @@
 package com.addtocart.controller;
 
+import java.io.File;
 import java.security.Principal;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.addtocart.dto.Product;
 import com.addtocart.service.ProductService;
@@ -46,7 +50,18 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/addproduct", method = RequestMethod.POST)
-	public String processAddNewProductForm(@ModelAttribute("newProduct") Product newProduct) {
+	public String processAddNewProductForm(@ModelAttribute("newProduct") Product newProduct,HttpServletRequest request) {
+		MultipartFile productImage = newProduct.getProductImage();
+		String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+				System.out.println(rootDirectory);
+			if (productImage!=null && !productImage.isEmpty()) {
+		       try {
+		      	productImage.transferTo(new File(rootDirectory+"resources\\productimages\\"+newProduct.getProductImageID() + ".png"));
+		       } catch (Exception e) {
+				throw new RuntimeException("Product Image saving failed", e);
+		   }
+		   }
+
 		productService.saveProduct(newProduct);
 		return "redirect:/productlist";
 	}

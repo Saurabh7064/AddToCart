@@ -9,6 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "product")
@@ -30,6 +33,30 @@ public class Product {
 	
 	@Column(name="product_description")
 	private String description;
+	
+	@OneToMany(mappedBy = "products", cascade = CascadeType.ALL)
+	private List<OrderDetails> orderDetails;
+
+	@Transient
+	private MultipartFile productImage;
+	
+	private int productImageID;
+	
+	public int getProductImageID() {
+		return productImageID;
+	}
+
+	public void setProductImageID(int productImageID) {
+		this.productImageID = productImageID;
+	}
+
+	public MultipartFile getProductImage() {
+		return productImage;
+	}
+
+	public void setProductImage(MultipartFile productImage) {
+		this.productImage = productImage;
+	}
 
 	public int getStock() {
 		return stock;
@@ -58,8 +85,6 @@ public class Product {
 		this.price = price;
 	}
 
-	@OneToMany(mappedBy = "products", cascade = CascadeType.ALL)
-	private List<OrderDetails> orderDetails;
 
  
 	public Product() {
@@ -104,7 +129,8 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", price=" + price + ", stock=" + stock + ", description="
-				+ description + ", orderDetails=" + orderDetails + "]";
+				+ description + ", orderDetails=" + orderDetails + ", productImage=" + productImage
+				+ ", productImageID=" + productImageID + "]";
 	}
 
  
