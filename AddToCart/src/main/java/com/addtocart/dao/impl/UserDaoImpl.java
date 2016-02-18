@@ -50,6 +50,22 @@ public class UserDaoImpl implements UserDao {
 		return sessionFactory;
 	}
 
+	@Override
+	public int deleteUser(int userID) {
+		
+		try {
+			Object o=getSession().load(User.class,new Integer(userID));
+			User user=(User)o;
+			getSession().delete(user);
+			return 1;
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+		return 0;
+	}
+
 
 	
 }

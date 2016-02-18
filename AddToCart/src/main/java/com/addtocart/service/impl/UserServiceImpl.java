@@ -32,6 +32,11 @@ public class UserServiceImpl implements UserService   {
 		return userDao.findUserByName(name);
 	}
 
+	@Transactional
+	public int deleteUser(int userID) {
+		return userDao.deleteUser(userID);
+	}
+
 	 
 
 }

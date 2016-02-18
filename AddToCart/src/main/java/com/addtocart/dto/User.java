@@ -12,6 +12,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 @Entity
 public class User {
 
@@ -38,6 +40,7 @@ public class User {
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = {
 			@JoinColumn(name = "role_id") })
+			 
 	private List<Role> roles;
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
@@ -88,7 +91,7 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+    @JsonIgnore
 	public List<Role> getRoles() {
 		return roles;
 	}

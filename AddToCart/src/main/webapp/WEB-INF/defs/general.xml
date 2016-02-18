@@ -72,6 +72,12 @@
 		<put-attribute name="body" value="/WEB-INF/views/jsp/addproduct.jsp" />
 		<put-attribute name="current" value="addProduct" />
 	</definition>
+	
+	 <definition name="usersajax" extends="common">
+		<put-attribute name="title" value="usersajax" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/usersajax.jsp" />
+		<put-attribute name="current" value="usersajax" />
+	</definition>
 </tiles-definitions>
 
 

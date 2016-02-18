@@ -9,5 +9,6 @@ public interface UserDao {
      public void saveUser(User user);
      public List<User> listUser();
      public User findUserByName(String name); 
-	
+     public int deleteUser(int userID);
+
 }
