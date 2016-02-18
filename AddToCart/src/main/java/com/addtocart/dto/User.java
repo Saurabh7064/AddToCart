@@ -12,8 +12,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
-
+ 
 @Entity
 public class User {
 
@@ -91,7 +90,7 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-    @JsonIgnore
+    @com.fasterxml.jackson.annotation.JsonIgnore
 	public List<Role> getRoles() {
 		return roles;
 	}
