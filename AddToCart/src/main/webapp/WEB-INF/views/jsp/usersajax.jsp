@@ -9,9 +9,10 @@
 	src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript">
 
-
-$(document).ready(function() {
-    $.ajax({
+function listusers(){
+	
+	console.debug("kistusers")
+	$.ajax({
         url: 'listusersjson',
         type: 'GET',
         success: function(response) {
@@ -66,6 +67,55 @@ $(document).ready(function() {
         });
         }
     });
+}
+$(document).ready(function() {
+	listusers();
+	(function ($) {
+	    $.fn.serializeFormJSON = function () {
+
+	        var o = {};
+	        var a = this.serializeArray();
+	        $.each(a, function () {
+	            if (o[this.name]) {
+	                if (!o[this.name].push) {
+	                    o[this.name] = [o[this.name]];
+	                }
+	                o[this.name].push(this.value || '');
+	            } else {
+	                o[this.name] = this.value || '';
+	            }
+	        });
+	        return o;
+	    };
+	})(jQuery);
+
+	$('form').submit(function (e) {
+	    e.preventDefault();
+	    var data = $(this).serializeFormJSON();
+	    console.log(data);
+	    console.log(JSON.stringify(data));
+	     $.ajax({
+             type: "POST",
+             contentType: "application/json",
+             dataType: "json",
+
+         url: "createajaxuser",
+         data:JSON.stringify(data),
+			error: function(jqXHR, textStatus, errorThrown) {
+				console.debug("saurabh error");
+				console.log(textStatus, errorThrown);			},
+         success: function(result) {
+        	 $('#delTable tbody').html(''); 
+            console.debug("success")
+        	 listusers();
+         }
+     });
+	    
+
+	});
+	
+	
+    
 
 });
 
@@ -74,6 +124,24 @@ $(document).ready(function() {
 
 </head>
 <body>
+
+<form action="#" method="post">
+    <div>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" />
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" />
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" />
+    </div>
+    <p>
+        <input type="submit" value="Send" />
+    </p>
+</form>
     <div class="container">
     <table  class="table table-bordered table-hover" id="delTable" >
     <thead>
