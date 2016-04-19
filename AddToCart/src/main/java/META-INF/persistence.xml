@@ -6,6 +6,6 @@
 		<class>com.addtocart.dto.Transactions</class>
 		<class>com.addtocart.dto.Role</class>
 		<class>com.addtocart.dto.Product</class>
-		<class>com.addtocart.dto.OrderDetails</class>
+		 <class>com.addtocart.dto.OrderDetails</class>
 	</persistence-unit>
 </persistence>
